@@ -3,7 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CharDeets : MonoBehaviour, IComparable<CharDeets>
@@ -53,11 +55,12 @@ public class CharDeets : MonoBehaviour, IComparable<CharDeets>
         _healthDecInputField.onEndEdit.AddListener(delegate { IncDecHealth(_healthDecInputField); });
     }
 
-    public CharDeets(string charName, int initiative, int health = 1) 
+    public CharDeets(string charName, int initiative, int health = 1, bool isPlayer = false) 
     {
         Name = charName;
         Initiative = initiative;
         Health = health;
+        IsPlayer = isPlayer;
     }
 
     /// <summary>
